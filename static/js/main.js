@@ -620,6 +620,10 @@ let web3;
 
 let NFT;
 
+let whitelist = [];
+
+let og = [];
+
 async function initWeb3() {
   const providerOptions = {
     walletconnect: {
@@ -678,7 +682,7 @@ async function initNFT() {
   let totalSupply = await NFT.methods.totalSupply().call();
   let maxSupply = await NFT.methods.maxSupply().call();
   let maxBatch = await NFT.methods.maxBatch().call();
-console.log(maxBatch);
+  console.log(maxBatch);
   $("#price").html(price / 10 ** 18 + " ETH each");
   $(".max-qty").html(maxSupply);
   $("#available-qty").html(maxSupply - totalSupply);
@@ -690,8 +694,19 @@ async function mint() {
   let num = $("#mintquantity").val();
   console.log(num);
   let price = await NFT.methods.price().call();
-  NFT.methods
-    .mintBatch(num)
-    .send({ from: selectedAccount, value: price * num });
+  NFT.methods.mint(num).send({ from: selectedAccount, value: price * num });
 }
 
+async function ogMint() {
+  let num = $("#mintquantity").val();
+  let price = await NFT.methods.price().call();
+  NFT.methods.ogMint(num).send({ from: selectedAccount, value: price * num });
+}
+
+async function whitelsitMint() {
+  let num = $("#mintquantity").val();
+  let price = await NFT.methods.price().call();
+  NFT.methods
+    .whitelistMint(num)
+    .send({ from: selectedAccount, value: price * num });
+}
