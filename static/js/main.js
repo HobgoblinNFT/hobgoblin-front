@@ -1115,10 +1115,17 @@ function getContract() {
 async function initNFT() {
   let NFT = getContract();
 
-  let totalSupply = await NFT.methods.totalSupply().call();
-  let maxSupply = await NFT.methods.maxSupply().call();
+  let ogStartTime = await NFT.methods.ogStartTime().call();
+  let ogEndTime = await NFT.methods.ogEndTime().call();
+  let whitelistStartTime = await NFT.methods.whitelistStartTime().call();
+  let whitelistEndTime = await NFT.methods.whitelistEndTime().call();
+  let publicStartTime = await NFT.methods.publicStartTime().call();
+  let publicEndTime = await NFT.methods.publicEndTime().call();
   let maxBatch = await NFT.methods.maxBatch().call();
-  console.log(totalSupply, maxSupply, maxBatch);
+  for (i = 2; i <= maxBatch; i++) {
+    let option = $('<option value="' + i + '">' + i + "</option>");
+    $(".publicSelect").append(option);
+  }
 }
 
 async function publicMint() {
