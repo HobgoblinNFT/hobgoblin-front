@@ -2249,7 +2249,7 @@ async function initNFT() {
   let publicStartTime = await NFT.methods.publicStartTime().call();
   let maxBatch = await NFT.methods.maxBatch().call();
   $(".publicSelect").html("");
-  for (i = 1; i <= maxBatch; i++) {
+  for (i = maxBatch; i >= 1; i--) {
     let option = $('<option value="' + i + '">' + i + "</option>");
     $(".publicSelect").append(option);
   }
