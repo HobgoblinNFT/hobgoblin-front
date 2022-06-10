@@ -2196,9 +2196,9 @@ async function initNFT() {
   let whitelistStartTime = await NFT.methods.whitelistStartTime().call();
   // let whitelistEndTime = await NFT.methods.whitelistEndTime().call();
   let publicStartTime = await NFT.methods.publicStartTime().call();
-  let publicEndTime = await NFT.methods.publicEndTime().call();
   let maxBatch = await NFT.methods.maxBatch().call();
-  for (i = 2; i <= maxBatch; i++) {
+  $(".publicSelect").html("");
+  for (i = 1; i <= maxBatch; i++) {
     let option = $('<option value="' + i + '">' + i + "</option>");
     $(".publicSelect").append(option);
   }
