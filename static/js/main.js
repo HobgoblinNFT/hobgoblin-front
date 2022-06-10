@@ -2207,7 +2207,7 @@ async function flush() {
 function getContract() {
   NFT = new web3.eth.Contract(
     ERC721ABI,
-    "0xc031390D9d59cc0D5613e93b4503cb0121040bf1"
+    "0xB584975b493cd5bd03ab4c546EB3a9B963776C68"
   );
   return NFT;
 }
