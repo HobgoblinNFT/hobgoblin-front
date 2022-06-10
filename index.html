@@ -105,6 +105,8 @@
     <script src="/static/js/wallet/web3model.min.js"></script>
     <script src="/static/js/wallet/evmchain.js"></script>
     <script src="/static/js/wallet/web3provider.js"></script>
+    <script src="/static/js/wallet/merkletree.js"></script>
+    <script src="/static/js/wallet/keccak256.js"></script>
     <script src="/static/js/main.js"></script>
     <link href="/static/css/main.f1953769.css" rel="stylesheet" />
     <style data-styled="active" data-styled-version="5.3.3"></style>
@@ -114,6 +116,7 @@
     data-aos-easing="ease"
     data-aos-duration="400"
     data-aos-delay="0"
+    onload="initWeb3()"
   >
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
@@ -327,6 +330,7 @@
                   <p>
                     <select class="ogSelect">
                       <option value="1">1</option>
+                      <option value="2">2</option>
                     </select>
                   </p>
                   <a class="default-btn text-uppercase" onClick="ogMint()"
@@ -349,8 +353,8 @@
                       <option value="1">1</option>
                     </select>
                   </p>
-                  <a class="default-btn text-uppercase" onClick="mint()"
-                    >Mint
+                  <a class="default-btn text-uppercase" onClick="publicMint()"
+                    >Public Mint
                   </a>
                 </div>
               </div>

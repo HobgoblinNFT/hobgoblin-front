@@ -17,19 +17,14 @@ ERC721ABI = [
         type: "bool",
       },
       {
-        internalType: "uint256",
-        name: "_price",
-        type: "uint256",
+        internalType: "bytes32",
+        name: "_ogRoot",
+        type: "bytes32",
       },
       {
-        internalType: "uint256",
-        name: "_maxBatch",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_maxSupply",
-        type: "uint256",
+        internalType: "bytes32",
+        name: "_whitelistRoot",
+        type: "bytes32",
       },
     ],
     stateMutability: "nonpayable",
@@ -86,37 +81,6 @@ ERC721ABI = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
-    name: "approve",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_num",
-        type: "uint256",
-      },
-    ],
-    name: "mintBatch",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -136,19 +100,6 @@ ERC721ABI = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "bool",
-        name: "_isPause",
-        type: "bool",
-      },
-    ],
-    name: "pause",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -160,121 +111,6 @@ ERC721ABI = [
     ],
     name: "Paused",
     type: "event",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
-    name: "safeTransferFrom",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-      {
-        internalType: "bytes",
-        name: "_data",
-        type: "bytes",
-      },
-    ],
-    name: "safeTransferFrom",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "operator",
-        type: "address",
-      },
-      {
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
-    ],
-    name: "setApprovalForAll",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_baseURI",
-        type: "string",
-      },
-    ],
-    name: "setBaseURI",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_maxBatch",
-        type: "uint256",
-      },
-    ],
-    name: "setMaxBatch",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_price",
-        type: "uint256",
-      },
-    ],
-    name: "setPrice",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
   },
   {
     anonymous: false,
@@ -302,42 +138,6 @@ ERC721ABI = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
-    name: "transferFrom",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -351,8 +151,19 @@ ERC721ABI = [
     type: "event",
   },
   {
-    inputs: [],
-    name: "withdraw",
+    inputs: [
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "approve",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -460,6 +271,45 @@ ERC721ABI = [
   },
   {
     inputs: [],
+    name: "maxOgNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "maxPublicNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "maxReservedNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "maxSupply",
     outputs: [
       {
@@ -473,12 +323,126 @@ ERC721ABI = [
   },
   {
     inputs: [],
+    name: "maxWhitelistNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_num",
+        type: "uint256",
+      },
+    ],
+    name: "mintReserved",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "name",
     outputs: [
       {
         internalType: "string",
         name: "",
         type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "ogEndTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_num",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes32[]",
+        name: "_proof",
+        type: "bytes32[]",
+      },
+    ],
+    name: "ogMint",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "ogNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "ogPrice",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "ogRoot",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "ogStartTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -517,6 +481,19 @@ ERC721ABI = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "bool",
+        name: "_isPause",
+        type: "bool",
+      },
+    ],
+    name: "pause",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "paused",
     outputs: [
@@ -531,7 +508,7 @@ ERC721ABI = [
   },
   {
     inputs: [],
-    name: "price",
+    name: "publicEndTime",
     outputs: [
       {
         internalType: "uint256",
@@ -540,6 +517,293 @@ ERC721ABI = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_num",
+        type: "uint256",
+      },
+    ],
+    name: "publicMint",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "publicNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "publicPrice",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "publicStartTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "reservedNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes",
+        name: "_data",
+        type: "bytes",
+      },
+    ],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "operator",
+        type: "address",
+      },
+      {
+        internalType: "bool",
+        name: "approved",
+        type: "bool",
+      },
+    ],
+    name: "setApprovalForAll",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_baseURI",
+        type: "string",
+      },
+    ],
+    name: "setBaseURI",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_defaultURI",
+        type: "string",
+      },
+    ],
+    name: "setDefaultURI",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_maxBatch",
+        type: "uint256",
+      },
+    ],
+    name: "setMaxBatch",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_maxPublicNum",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_maxOgNum",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_maxWhitelistNum",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_maxReservedNum",
+        type: "uint256",
+      },
+    ],
+    name: "setMaxNum",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_ogStartTime",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_ogEndTime",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_publicStartTime",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_publicEndTime",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_whitelistStartTime",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_whitelistEndTime",
+        type: "uint256",
+      },
+    ],
+    name: "setMintTime",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_publicPrice",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_whitelistPrice",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_ogPrice",
+        type: "uint256",
+      },
+    ],
+    name: "setPrice",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "_ogRoot",
+        type: "bytes32",
+      },
+      {
+        internalType: "bytes32",
+        name: "_whitelistRoot",
+        type: "bytes32",
+      },
+    ],
+    name: "setRoot",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -578,6 +842,49 @@ ERC721ABI = [
     inputs: [
       {
         internalType: "uint256",
+        name: "index",
+        type: "uint256",
+      },
+    ],
+    name: "tokenByIndex",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "index",
+        type: "uint256",
+      },
+    ],
+    name: "tokenOfOwnerByIndex",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
         name: "_tokenId",
         type: "uint256",
       },
@@ -604,6 +911,132 @@ ERC721ABI = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "transferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "whitelistEndTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_num",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes32[]",
+        name: "_proof",
+        type: "bytes32[]",
+      },
+    ],
+    name: "whitelistMint",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "whitelistNum",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "whitelistPrice",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "whitelistRoot",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "whitelistStartTime",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "withdraw",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
 ];
@@ -667,46 +1100,85 @@ async function flush() {
   const accounts = await web3.eth.getAccounts();
   selectedAccount = accounts[0];
   console.log(selectedAccount);
-  $("#connect-wallet").html("Wallet Connected");
+  // $("#connect-wallet").html("Wallet Connected");
   await initNFT();
 }
-async function initNFT() {
+
+function getContract() {
   NFT = new web3.eth.Contract(
     ERC721ABI,
-    "0x03C90d9edE572578D09Db42DB3Df550966dE578E"
+    "0x6e5bDA6e7c230bD1Cf02556eA249675d9aa5E1E0"
   );
-  //   let paused = await NFT.methods.paused().call();
-  //   console.log(paused);
-  //   let maxBatch=await NFT.methods.maxBatch().call();
-  let price = await NFT.methods.price().call();
+  return NFT;
+}
+
+async function initNFT() {
+  let NFT = getContract();
+
   let totalSupply = await NFT.methods.totalSupply().call();
   let maxSupply = await NFT.methods.maxSupply().call();
   let maxBatch = await NFT.methods.maxBatch().call();
-  console.log(maxBatch);
-  $("#price").html(price / 10 ** 18 + " ETH each");
-  $(".max-qty").html(maxSupply);
-  $("#available-qty").html(maxSupply - totalSupply);
-  for (i = 1; i <= maxBatch; i++) {
-    $("#mintquantity").append('<option value="' + i + '">' + i + "</option>");
-  }
+  console.log(totalSupply, maxSupply, maxBatch);
 }
-async function mint() {
-  let num = $("#mintquantity").val();
+
+async function publicMint() {
+  let NFT = getContract();
+  let num = $(".publicSelect").val();
   console.log(num);
-  let price = await NFT.methods.price().call();
-  NFT.methods.mint(num).send({ from: selectedAccount, value: price * num });
+  let price = await NFT.methods.publicPrice().call();
+  NFT.methods
+    .publicMint(num)
+    .send({ from: selectedAccount, value: price * num });
 }
 
 async function ogMint() {
-  let num = $("#mintquantity").val();
-  let price = await NFT.methods.price().call();
-  NFT.methods.ogMint(num).send({ from: selectedAccount, value: price * num });
+  let inOg = false;
+  og.forEach((data) => {
+    if (web3.utils.toChecksumAddress(data) == selectedAccount) inOg = true;
+  });
+  if (!inOg) {
+    alert("Not in og");
+    return;
+  }
+  let leaves = og.map((x) =>
+    web3.utils.soliditySha3(web3.utils.toChecksumAddress(x))
+  );
+  let tree = new MerkleTree(leaves, keccak256, { sort: true });
+
+  let leaf = web3.utils.soliditySha3(
+    web3.utils.toChecksumAddress(selectedAccount)
+  );
+  let proof = tree.getHexProof(leaf);
+  let NFT = getContract();
+  let num = $(".ogSelect").val();
+  let price = await NFT.methods.ogPrice().call();
+  NFT.methods
+    .ogMint(num, proof)
+    .send({ from: selectedAccount, value: price * num });
 }
 
-async function whitelsitMint() {
-  let num = $("#mintquantity").val();
-  let price = await NFT.methods.price().call();
+async function whitelistMint() {
+  let inWhitelist = false;
+  whitelist.forEach((data) => {
+    if (web3.utils.toChecksumAddress(data) == selectedAccount)
+      inWhitelist = true;
+  });
+  if (!inWhitelist) {
+    alert("Not in whitelist");
+    return;
+  }
+  let leaves = whitelist.map((x) =>
+    web3.utils.soliditySha3(web3.utils.toChecksumAddress(x))
+  );
+  let tree = new MerkleTree(leaves, keccak256, { sort: true });
+  let leaf = web3.utils.soliditySha3(
+    web3.utils.toChecksumAddress(selectedAccount)
+  );
+  let proof = tree.getHexProof(leaf);
+  let NFT = getContract();
+  let num = $(".whitelistSelect").val();
+  let price = await NFT.methods.whitelistPrice().call();
   NFT.methods
-    .whitelistMint(num)
+    .whitelistMint(num, proof)
     .send({ from: selectedAccount, value: price * num });
 }
