@@ -3573,17 +3573,17 @@ async function initNFT() {
   let ogStartTimeStr = formatDate(ogStartTime * 1000);
   console.log(ogStartTimeStr);
   $("#ogCountdown").countdown(ogStartTimeStr, function (event) {
-    $(this).html(event.strftime("%H:%M:%S"));
+    $(this).html(event.strftime("Open Coundwon %H:%M:%S"));
   });
   let whitelistStartTimeStr = formatDate(whitelistStartTime * 1000);
   console.log(whitelistStartTimeStr);
   $("#whitelistCountdown").countdown(whitelistStartTimeStr, function (event) {
-    $(this).html(event.strftime("%H:%M:%S"));
+    $(this).html(event.strftime("Open Coundwon %H:%M:%S"));
   });
   let publicStartTimeStr = formatDate(publicStartTime * 1000);
   console.log(publicStartTimeStr);
   $("#publicCountdown").countdown(publicStartTimeStr, function (event) {
-    $(this).html(event.strftime("%H:%M:%S"));
+    $(this).html(event.strftime("Open Coundwon %H:%M:%S"));
   });
 }
 
